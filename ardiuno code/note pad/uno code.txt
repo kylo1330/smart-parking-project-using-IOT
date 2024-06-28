@@ -1,0 +1,57 @@
+#include <Servo.h>
+
+Servo myservo;
+int IRSensor = 2; // connect ir sensor to arduino pin 2 SLOT 2
+int IRSensor1 = 4;
+
+int LED = 13; // conect Led to arduino pin 13
+int L2=8;
+
+int LED1 = 12; // conect Led to arduino pin 13
+int L1=7;
+
+
+void setup() 
+{
+
+  pinMode (IRSensor, INPUT);
+  pinMode (IRSensor1, INPUT);// sensor pin INPUT
+  pinMode (LED, OUTPUT); // Led pin OUTPUT
+  pinMode (L2, OUTPUT);
+  pinMode (LED1, OUTPUT); // Led pin OUTPUT
+  pinMode (L1, OUTPUT);
+}
+
+
+void loop()
+{
+  int statusSensor = digitalRead (IRSensor);
+  int statusSensor1 = digitalRead (IRSensor1);
+  
+  if (statusSensor == 1)
+  {
+    digitalWrite(LED, HIGH); 
+    digitalWrite(L2, LOW);
+  }
+  
+  else
+  {
+    digitalWrite(LED, LOW); 
+    digitalWrite(L2, HIGH);
+  }
+
+if (statusSensor1 == 1){
+    digitalWrite(L1, HIGH); 
+    digitalWrite(LED1, LOW);
+  }
+  
+  else
+  {
+    digitalWrite(L1, LOW); 
+    digitalWrite(LED1, HIGH);
+  }
+
+  
+
+  
+}
